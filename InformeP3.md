@@ -53,7 +53,8 @@ del codi html inserit dins del codi cpp.
 
 Es mostrarà per pantalla el següent:
 
-![image](https://user-images.githubusercontent.com/101355262/171424178-a01c9e97-9d44-4253-b365-392fa309eba7.png)
+![image](https://user-images.githubusercontent.com/101355262/171424383-72a605cc-9b35-4781-9b06-d0990c830918.png)
+
 
 
 # Codi 2a part
