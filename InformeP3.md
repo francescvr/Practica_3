@@ -59,6 +59,38 @@ Es mostrarà per pantalla el següent:
 
 # Codi 2a part
 
+#include "BluetoothSerial.h"
+#if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
+#error Bluetooth is not enabled! Please run `make menuconfig` to and enable it
+#endif
+BluetoothSerial SerialBT;
+void setup() {
+Serial.begin(115200);
+SerialBT.begin("ESP32test"); //Bluetooth device name
+Serial.println("The device started, now you can pair it with bluetooth!");
+}
+void loop() {
+if (Serial.available()) {
+SerialBT.write(Serial.read());
+}
+if (SerialBT.available()) {
+Serial.write(SerialBT.read());
+}
+delay(20);
+}
+
+
+# Funcionament
+
+Aquesta pràctica consisteix a poder veure la comunicació bluetooth, entre un dispositiu bluetooth rebent missatges que rebrà, 
+des d'un dispositiu mòbil, des d'on s'enviaran aquests missatges. Per això inicialment necessitem inicialitzar la nostra ESP32 
+perquè aquesta sigui capaç de rebre els missatges. Caldrà executar el codi, que un cop pujat a la placa ens permetrà aparellar-la 
+amb el nostre dispositiu mòbil.
+
+Aixì sabrem si el ESP32 s'ha connectat al dispositiu mitjançant bluetooth:
+
+![image](https://user-images.githubusercontent.com/101355262/171425761-f03d7553-2377-430c-83d9-d1f2d9ae1c36.png)
+
 
 
 
